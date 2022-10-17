@@ -1,0 +1,45 @@
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 290px;
+}
+
+.hello {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(240, 236, 180);
+  font-size: 40px;
+}
+
+.label {
+    font-family:"Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-size: large;
+    color: rgb(233, 228, 168);;
+}
+
+.user-input {
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  width: 200px;
+  padding: 6px 20px;
+  margin: 8px 0;
+  outline:none;
+  border-width: 1px;
+  border-radius: 10px;
+}
+
+.button {
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    padding: 6px 20px;
+    margin-left: 2px;
+    box-sizing: border-box;
+    border-width: 1px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgb(235, 230, 169);
+}
