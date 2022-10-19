@@ -1,25 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./UserLogin.css";
 
 const UserLogin = (props) => {
   const [userName, setUserName] = useState("");
   const [isLogin, setIsLogin] = useState(false);
 
-  // useEffect(()=>{
-  //   const storedUserName = localStorage.getItem('User Name');
-  //   if(storedUserName === userName){
-  //     setIsLogin(true);
-  //   }
-  // },[])
+  useEffect(() => {
+    const storedUserName = localStorage.getItem("UserName");
+    console.log("effect active");
+    console.log(storedUserName);
+    if (storedUserName === null) {
+      setIsLogin(false);
+    }else {
+      setIsLogin(true);
+      setUserName(storedUserName);
+    }
+  }, [isLogin]);
+
+  const changeHandler = (e) => {
+    setUserName(e.target.value);
+  };
+
+  const logoutHandler = () => {
+    localStorage.removeItem("UserName");
+    setIsLogin(false);
+  };
 
   const submitHandler = (e) => {
-    localStorage.setItem("User Name", userName);
+    localStorage.setItem("UserName", userName);
     e.preventDefault();
 
     if (userName.length < 3) {
       console.log("Your user name must have more than 3 chracters");
       setUserName("");
     } else {
+      setUserName(e.target.value);
       setIsLogin(true);
       console.log(isLogin);
     }
@@ -33,15 +48,22 @@ const UserLogin = (props) => {
           <input
             type="text"
             className="user-input"
-            onChange={(e) => setUserName(e.target.value)}
+            onChange={changeHandler}
             value={userName}
           />
-          <button className="button" type="submit">
+          <button className="button-login" type="submit">
             Login
           </button>
         </form>
       )}
-      {isLogin && <p className="hello">Hello {userName}</p>}
+      {isLogin && (
+        <div className="logout">
+          <button className="button-logout" onClick={logoutHandler}>
+            Logout
+          </button>
+          <p className="hello">Hello {userName}</p>
+        </div>
+      )}
     </div>
   );
 };

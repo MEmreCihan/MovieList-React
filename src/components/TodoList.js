@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./TodoList.css";
 // import 'bootstrap/dist/css/bootstrap.css';
 import { AiFillDelete } from "react-icons/ai";
