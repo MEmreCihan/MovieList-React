@@ -4,18 +4,19 @@ import "./InputTodo.css";
 function InputTodo(props) {
   const [content, setContent] = useState("");
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
-    if(content.length < 0) {
+    if (content.length < 1) {
+      console.log("Movie must be more than 1 character");
       setContent("");
-    }else {
+    } else {
       const newTodo = {
         id: new Date().getTime(),
         content: content,
         isCompleted: false,
       };
-  
-      props.onDataHandler(newTodo);
+      const td = props.onUploadMovie(newTodo)
+      props.onDataHandler(await td);
       setContent("");
     }
   };
@@ -32,7 +33,9 @@ function InputTodo(props) {
             value={content}
             placeholder="Add Movie"
           />
-            <button type="submit" className="button-29">Add</button>
+          <button type="submit" className="button-29">
+            Add
+          </button>
         </form>
       </div>
     </div>

@@ -8,7 +8,6 @@ const UserLogin = (props) => {
   useEffect(() => {
     const storedUserName = localStorage.getItem("UserName");
     console.log("effect active");
-    console.log(storedUserName);
     if (storedUserName === null) {
       setIsLogin(false);
     }else {
@@ -36,7 +35,6 @@ const UserLogin = (props) => {
     } else {
       setUserName(e.target.value);
       setIsLogin(true);
-      console.log(isLogin);
     }
   };
 
