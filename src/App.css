@@ -7,6 +7,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  min-width: 500px;
   /* background-color: rgb(5, 205, 219); */
   background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
 }
